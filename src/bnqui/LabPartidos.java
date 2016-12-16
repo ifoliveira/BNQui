@@ -6,33 +6,50 @@
 package bnqui;
 
 import java.awt.Label;
-
+        
 /**
  *
  * @author igfernan
  */
 public class LabPartidos extends javax.swing.JPanel {
-
+    public Label[][] partidos;  
     /**
      * Creates new form LabPartidos
      */
     public LabPartidos() {
         initComponents();
-        
-        Label[][] partidos = new java.awt.Label[][]{{EquipoC1,EquipoV1},
-                                                    {EquipoC2,EquipoV2},
-                                                    {EquipoC3,EquipoV3},
-                                                    {EquipoC4,EquipoV4},
-                                                    {EquipoC5,EquipoV5},
-                                                    {EquipoC6,EquipoV6},
-                                                    {EquipoC7,EquipoV7},
-                                                    {EquipoC8,EquipoV8},
-                                                    {EquipoC9,EquipoV9},
-                                                    {EquipoC10,EquipoV10},
-                                                    {EquipoC11,EquipoV11},
-                                                    {EquipoC12,EquipoV12},
-                                                    {EquipoC13,EquipoV13},
-                                                    {EquipoC14,EquipoV14}};
+       
+        setpartidos();
+    }
+    
+    
+    public final void setpartidos(){
+         partidos = new java.awt.Label[][]{  {EquipoC1,EquipoV1},
+                                                        {EquipoC2,EquipoV2},
+                                                        {EquipoC3,EquipoV3},
+                                                        {EquipoC4,EquipoV4},
+                                                        {EquipoC5,EquipoV5},
+                                                        {EquipoC6,EquipoV6},
+                                                        {EquipoC7,EquipoV7},
+                                                        {EquipoC8,EquipoV8},
+                                                        {EquipoC9,EquipoV9},
+                                                        {EquipoC10,EquipoV10},
+                                                        {EquipoC11,EquipoV11},
+                                                        {EquipoC12,EquipoV12},
+                                                        {EquipoC13,EquipoV13},
+                                                        {EquipoC14,EquipoV14}};
+    
+    }
+    /**
+     *
+     * @param i --> Columna
+     * @param j --> Fila
+     * @param equipo
+     */
+    public void setPartidos(int j, int i, String equipo){
+
+            partidos[j][i].setText(equipo);
+    
     }
 
     /**
