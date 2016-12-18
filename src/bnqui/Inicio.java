@@ -22,21 +22,20 @@ import javax.swing.JPanel;
  */
 public class Inicio extends javax.swing.JFrame {
 String [][] estadisticas = new String[14][5];
+
     /**
      * Creates new form Inicio
      */
     public Inicio() {
-    try {
-        initComponents();
-        
-        Download.extrae("26", "V");
-        
-        cargar_partidos();
-    } catch (IOException ex) {
-        Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
-    }
+        try {
+            initComponents();
 
+            Download.extrae("26", "V");
 
+            cargar_partidos();
+        } catch (IOException ex) {
+            Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     
@@ -72,6 +71,7 @@ String [][] estadisticas = new String[14][5];
         labResult1 = new bnqui.LabResult();
         labPartidos22 = new bnqui.LabPartidos2();
         porPartidos1 = new bnqui.PorPartidos();
+        jTextField1 = new javax.swing.JTextField();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -86,6 +86,11 @@ String [][] estadisticas = new String[14][5];
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(996, 635));
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
 
         Temporada.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2016 / 2017", "2017 / 2018" }));
         Temporada.setAutoscrolls(true);
@@ -116,6 +121,18 @@ String [][] estadisticas = new String[14][5];
             }
         });
 
+        labResult1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labResult1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                labResult1MouseEntered(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                labResult1MousePressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -131,7 +148,9 @@ String [][] estadisticas = new String[14][5];
                         .addComponent(Temporada, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton1)
-                        .addGap(0, 310, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 242, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(labResult1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -148,7 +167,8 @@ String [][] estadisticas = new String[14][5];
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton1)
                             .addComponent(Temporada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Jornada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Jornada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(19, 19, 19)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(labResult1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -168,21 +188,36 @@ String [][] estadisticas = new String[14][5];
     }//GEN-LAST:event_JornadaActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    try {
-        Download.extrae(String.valueOf(Jornada.getSelectedIndex()+1), "V");
-        cargar_partidos();
-    } catch (IOException ex) {
-        jError.main("No existe la jornada");
-        
-        
-    }
-        
-        
+        try {
+            Download.extrae(String.valueOf(Jornada.getSelectedIndex()+1), "V");
+            cargar_partidos();
+        } catch (IOException ex) {
+            jError.main("No existe la jornada");
+
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void JornadaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JornadaMouseClicked
 
     }//GEN-LAST:event_JornadaMouseClicked
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+
+    }//GEN-LAST:event_formMouseClicked
+
+    private void labResult1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labResult1MouseClicked
+
+    }//GEN-LAST:event_labResult1MouseClicked
+
+    private void labResult1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labResult1MouseEntered
+        int[] DobTri = labResult1.getDobTri();
+        String texto = Integer.toString(DobTri[0]) + "D " + Integer.toString(DobTri[1]) + "T";
+        jTextField1.setText(texto);    
+    }//GEN-LAST:event_labResult1MouseEntered
+
+    private void labResult1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labResult1MousePressed
+   
+    }//GEN-LAST:event_labResult1MousePressed
 
     /**
      * @param args the command line arguments
@@ -224,6 +259,7 @@ String [][] estadisticas = new String[14][5];
     private javax.swing.JComboBox<String> Temporada;
     private javax.swing.JButton jButton1;
     private javax.swing.JDialog jDialog1;
+    private javax.swing.JTextField jTextField1;
     private bnqui.LabPartidos2 labPartidos22;
     private bnqui.LabResult labResult1;
     private bnqui.PorPartidos porPartidos1;

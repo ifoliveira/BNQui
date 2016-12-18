@@ -14,6 +14,7 @@ import java.awt.Color;
 public class LabResult extends javax.swing.JPanel {
     Color negro = new Color(0,0,0);
     Color rosa = new Color(255,199,199);
+    columna columnbase = new columna();
     /**
      * Creates new form LabResult
      */
@@ -1152,12 +1153,45 @@ public class LabResult extends javax.swing.JPanel {
          if (negro.getRGB()== b.getForeground().getRGB()) {
             
             b.setForeground(rosa);
-        
+            
+            columnbase.setColumna(false,f,c);
         }else{
         
             b.setForeground(negro);
+            columnbase.setColumna(true,f,c);
         }//To change body of generated methods, choose Tools | Templates.
 
+    }
+    
+    public Boolean[][] getColumna() {
+
+        return columnbase.getColumna();
+    }
+    
+    public int[] getDobTri() {
+
+        Boolean [][] analisis =  columnbase.getColumna();
+        
+        int i;
+        int j;
+        int[] DobTri = new int[2];
+        int conta;
+        
+        for (j=0;j<=13;j++){
+            conta = 0;
+            for (i=0;i<=2;i++){
+              if (analisis[j][i]==true){
+                  conta++;
+              }
+            }
+            if (conta == 2) {
+                DobTri[0]++;
+            }
+            if (conta == 3) {
+                DobTri[1]++;
+            }
+        }
+        return DobTri;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
