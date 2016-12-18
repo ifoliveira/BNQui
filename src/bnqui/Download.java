@@ -17,6 +17,7 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.StringTokenizer;
@@ -34,12 +35,12 @@ public class Download {
 	 * 
      * @param Jornada
      * @param dia
+     * @throws java.io.IOException
 	 */
     
     
-	public static void extrae(String Jornada, String dia) {
-		try {
-			// Url con la foto;
+	public static void extrae(String Jornada, String dia) throws IOException {
+
                         String urltxt = "";
                         
                         urltxt = "http://www.loteriasyapuestas.es/f"
@@ -53,12 +54,23 @@ public class Download {
 			// establecemos conexion
 			URLConnection urlCon = url.openConnection();
 
-			// Sacamos por pantalla el tipo de fichero
-			System.out.println(urlCon.getContentType());
-
 			// Se obtiene el inputStream de la foto web y se abre el fichero
 			// local.
-			InputStream is = urlCon.getInputStream();
+                        InputStream is = null;
+                        is = urlCon.getInputStream();
+//                        try {
+//                            is = urlCon.getInputStream();
+//                        } catch (IOException ioe) {
+//                            if (urlCon instanceof HttpURLConnection) {
+//                                HttpURLConnection httpConn = (HttpURLConnection) urlCon;
+//                                int statusCode = httpConn.getResponseCode();
+//                                if (statusCode != 200) {
+//                                    is = httpConn.getErrorStream();
+//                                }
+//                            }
+//                        }
+//			 
+                        
 			FileOutputStream fos = new FileOutputStream("D:/Cap_Qv1.1/estadistica.txt");
 
 			// Lectura de la foto de la web y escritura en fichero local
@@ -72,9 +84,7 @@ public class Download {
 			// cierre de conexion y fichero.
 			is.close();
 			fos.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+
 	}
         
    public static String[][] leer_estadisticas() {
