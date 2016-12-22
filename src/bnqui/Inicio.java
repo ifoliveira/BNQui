@@ -65,8 +65,8 @@ String [][] estadisticas = new String[14][5];
     private void initComponents() {
 
         jDialog1 = new javax.swing.JDialog();
-        Temporada = new javax.swing.JComboBox<String>();
-        Jornada = new javax.swing.JComboBox<String>();
+        Temporada = new javax.swing.JComboBox<>();
+        Jornada = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         labResult1 = new bnqui.LabResult();
         labPartidos22 = new bnqui.LabPartidos2();
@@ -93,7 +93,7 @@ String [][] estadisticas = new String[14][5];
             }
         });
 
-        Temporada.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2016 / 2017", "2017 / 2018" }));
+        Temporada.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2016 / 2017", "2017 / 2018" }));
         Temporada.setAutoscrolls(true);
         Temporada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,7 +101,7 @@ String [][] estadisticas = new String[14][5];
             }
         });
 
-        Jornada.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37" }));
+        Jornada.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37" }));
         Jornada.setAutoscrolls(true);
         Jornada.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -131,6 +131,11 @@ String [][] estadisticas = new String[14][5];
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 labResult1MousePressed(evt);
+            }
+        });
+        labResult1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                labResult1PropertyChange(evt);
             }
         });
 
@@ -214,19 +219,24 @@ String [][] estadisticas = new String[14][5];
     }//GEN-LAST:event_formMouseClicked
 
     private void labResult1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labResult1MouseClicked
-
+        int[] DobTri = labResult1.getDobTri();
+        String texto = Integer.toString(DobTri[0]) + "D " + Integer.toString(DobTri[1]) + "T";
+        jTextField1.setText(texto);   
     }//GEN-LAST:event_labResult1MouseClicked
 
     private void labResult1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labResult1MouseEntered
-        int[] DobTri = labResult1.getDobTri();
-        String texto = Integer.toString(DobTri[0]) + "D " + Integer.toString(DobTri[1]) + "T";
-        jTextField1.setText(texto);    
+ 
     }//GEN-LAST:event_labResult1MouseEntered
 
     private void labResult1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labResult1MousePressed
    
     }//GEN-LAST:event_labResult1MousePressed
 
+    private void labResult1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_labResult1PropertyChange
+
+    }//GEN-LAST:event_labResult1PropertyChange
+
+  
     /**
      * @param args the command line arguments
      */
