@@ -15,6 +15,7 @@ public class LabResult extends javax.swing.JPanel {
     Color negro = new Color(0,0,0);
     Color rosa = new Color(255,199,199);
     columna columnbase = new columna();
+    Boolean[] afectado = new Boolean[14];
     /**
      * Creates new form LabResult
      */
@@ -1155,10 +1156,21 @@ public class LabResult extends javax.swing.JPanel {
             b.setForeground(rosa);
             
             columnbase.setColumna(false,f,c);
+            
+            Boolean [][] pronostico = columnbase.getColumna();
+            
+            if (pronostico[f][0] == false && pronostico[f][1] == false && pronostico[f][2] == false){
+                 
+                afectado [f] = false;
+                
+            }
+            
         }else{
         
             b.setForeground(negro);
             columnbase.setColumna(true,f,c);
+            afectado [f] = true;
+            
         }//To change body of generated methods, choose Tools | Templates.
 
     }
@@ -1166,6 +1178,14 @@ public class LabResult extends javax.swing.JPanel {
     public Boolean[][] getColumna() {
 
         return columnbase.getColumna();
+        
+    }
+    
+    
+    public Boolean[] getafectado() {
+
+        return afectado;
+        
     }
     
     public int[] getDobTri() {

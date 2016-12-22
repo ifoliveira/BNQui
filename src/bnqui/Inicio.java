@@ -73,6 +73,9 @@ String [][] estadisticas = new String[14][5];
         porPartidos1 = new bnqui.PorPartidos();
         jTextField1 = new javax.swing.JTextField();
         colBase1 = new bnqui.LabResult();
+        jSpinner1 = new javax.swing.JSpinner();
+        jSpinner2 = new javax.swing.JSpinner();
+        jButton2 = new javax.swing.JButton();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -144,6 +147,17 @@ String [][] estadisticas = new String[14][5];
         jTextField1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
+        jSpinner1.setModel(new javax.swing.SpinnerNumberModel(0, 0, 14, 1));
+
+        jSpinner2.setModel(new javax.swing.SpinnerNumberModel(0, 0, 14, 1));
+
+        jButton2.setText("Calcular");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -157,7 +171,9 @@ String [][] estadisticas = new String[14][5];
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 339, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 198, Short.MAX_VALUE)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(labPartidos22, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -167,6 +183,10 @@ String [][] estadisticas = new String[14][5];
                 .addComponent(labResult1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addComponent(colBase1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jSpinner1, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+                    .addComponent(jSpinner2))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -178,14 +198,20 @@ String [][] estadisticas = new String[14][5];
                         .addComponent(jButton1)
                         .addComponent(Temporada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(Jornada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton2)))
                 .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(labPartidos22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(porPartidos1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(labResult1, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(colBase1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(colBase1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(206, Short.MAX_VALUE))
         );
 
@@ -219,13 +245,13 @@ String [][] estadisticas = new String[14][5];
     }//GEN-LAST:event_formMouseClicked
 
     private void labResult1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labResult1MouseClicked
-        int[] DobTri = labResult1.getDobTri();
-        String texto = Integer.toString(DobTri[0]) + "D " + Integer.toString(DobTri[1]) + "T";
-        jTextField1.setText(texto);   
+
     }//GEN-LAST:event_labResult1MouseClicked
 
     private void labResult1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labResult1MouseEntered
- 
+        int[] DobTri = labResult1.getDobTri();
+        String texto = Integer.toString(DobTri[0]) + "D " + Integer.toString(DobTri[1]) + "T";
+        jTextField1.setText(texto);   
     }//GEN-LAST:event_labResult1MouseEntered
 
     private void labResult1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labResult1MousePressed
@@ -235,6 +261,20 @@ String [][] estadisticas = new String[14][5];
     private void labResult1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_labResult1PropertyChange
 
     }//GEN-LAST:event_labResult1PropertyChange
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+      
+        Boolean[][] base = labResult1.getColumna();
+        String[][] estadis = Download.leer_estadisticas();
+        
+        Generar generar = new Generar();
+        
+    try {
+        generar.escribir_txt(base,estadis);
+    } catch (IOException ex) {
+        Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    }//GEN-LAST:event_jButton2MouseClicked
 
   
     /**
@@ -277,7 +317,10 @@ String [][] estadisticas = new String[14][5];
     private javax.swing.JComboBox<String> Temporada;
     private bnqui.LabResult colBase1;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JDialog jDialog1;
+    private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JSpinner jSpinner2;
     private javax.swing.JTextField jTextField1;
     private bnqui.LabPartidos2 labPartidos22;
     private bnqui.LabResult labResult1;
