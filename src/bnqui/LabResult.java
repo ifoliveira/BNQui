@@ -21,6 +21,9 @@ public class LabResult extends javax.swing.JPanel {
      */
     public LabResult() {
         initComponents();
+
+        Color color = new Color(160,198,255);
+        this.setBackground(color)   ;  
     }
 
     /**
@@ -1179,6 +1182,53 @@ public class LabResult extends javax.swing.JPanel {
 
         return columnbase.getColumna();
         
+    }
+    
+    public void setCompletar(){
+        
+        ChangeColor(this.Pro_g_1,0,0);
+        ChangeColor(this.Pro_g_2,0,1);
+        ChangeColor(this.Pro_g_3,0,2);
+        ChangeColor(this.Pro_g_4,1,0);
+        ChangeColor(this.Pro_g_5,1,1);
+        ChangeColor(this.Pro_g_6,1,2);
+        ChangeColor(this.Pro_g_7,2,0);
+        ChangeColor(this.Pro_g_8,2,1);
+        ChangeColor(this.Pro_g_9,2,2);
+        ChangeColor(this.Pro_g_10,3,0);
+        ChangeColor(this.Pro_g_11,3,1);
+        ChangeColor(this.Pro_g_12,3,2);
+        ChangeColor(this.Pro_g_13,4,0);
+        ChangeColor(this.Pro_g_14,4,1);
+        ChangeColor(this.Pro_g_15,4,2);
+        ChangeColor(this.Pro_g_16,5,0);
+        ChangeColor(this.Pro_g_17,5,1);
+        ChangeColor(this.Pro_g_18,5,2);
+        ChangeColor(this.Pro_g_19,6,0);
+        ChangeColor(this.Pro_g_20,6,1);
+        ChangeColor(this.Pro_g_21,6,2);
+        ChangeColor(this.Pro_g_22,7,0);
+        ChangeColor(this.Pro_g_23,7,1);
+        ChangeColor(this.Pro_g_24,7,2);
+        ChangeColor(this.Pro_g_25,8,0);
+        ChangeColor(this.Pro_g_26,8,1);
+        ChangeColor(this.Pro_g_27,8,2);        
+        ChangeColor(this.Pro_g_28,9,0);
+        ChangeColor(this.Pro_g_29,9,1);
+        ChangeColor(this.Pro_g_30,9,2);     
+        ChangeColor(this.Pro_g_31,10,0);
+        ChangeColor(this.Pro_g_32,10,1);
+        ChangeColor(this.Pro_g_33,10,2);     
+        ChangeColor(this.Pro_g_34,11,0);
+        ChangeColor(this.Pro_g_35,11,1);
+        ChangeColor(this.Pro_g_36,11,2); 
+        ChangeColor(this.Pro_g_37,12,0);
+        ChangeColor(this.Pro_g_38,12,1);
+        ChangeColor(this.Pro_g_39,12,2); 
+        ChangeColor(this.Pro_g_40,13,0);
+        ChangeColor(this.Pro_g_41,13,1);
+        ChangeColor(this.Pro_g_42,13,2); 
+                        
     }
     
     

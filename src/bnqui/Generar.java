@@ -17,13 +17,13 @@ import java.io.IOException;
  */
 class Generar {
 
-    public void escribir_txt(Boolean [][] valorPronostico, String [][] estadisticas) throws IOException {
+    public int escribir_txt(Boolean [][] valorPronostico, Boolean [][] columnaBase1 , int aciertomin1, int aciertomax1,Boolean [][] columnaBase2 , int aciertomin2, int aciertomax2,String [][] estadisticas) throws IOException {
         double [] porcentaje = new double [14];
         
         Boolean[][] pronostico = valorPronostico;
         String[] Detalle = new String[15];
         int[] Detalle1 = new int[15];
-        
+        int apuestas = 0;
         double detalpor;
         Detalle[14]="FF";
         
@@ -119,13 +119,21 @@ class Generar {
                                                 
                                                 if (detalpor > 0.35 && detalpor < 0.66) {*/
 
-
+                                                boolean siescribe = columnabase(Detalle,columnaBase1,aciertomin1, aciertomax1);
+                                                
+                                                if (siescribe==true){
+                                                     siescribe = columnabase(Detalle,columnaBase2,aciertomin2, aciertomax2);
+                                                }
+                                                
+                                                if (siescribe==true){
                                                 bw.write(Detalle[0] + Detalle[1] + Detalle[2] + 
                                                          Detalle[3] + Detalle[4] + Detalle[5] +
                                                          Detalle[6] + Detalle[7] + Detalle[8] +
                                                          Detalle[9] + Detalle[10]+ Detalle[11] +
                                                          Detalle[12]+ Detalle[13] +  "ZZ\r\n");
 //                                                        +String.valueOf(detalpor)+"\r\n");
+                                                       apuestas ++;
+                                                }
                                                        
                                             }
                                         }
@@ -135,5 +143,35 @@ class Generar {
                         }}}}}}}}}}}}}}}}}}}}}}}
           
         bw.close();
-}   
+        
+        return apuestas;
+}
+    
+    public boolean columnabase(String[] Columna, Boolean [][] columnaBase, int aciertomin, int aciertomax){
+        
+            int i;
+            int j;
+            i=0;
+            for (j=0;j<=13;j++){
+                   if (Columna[j]== "1") {
+                    if (columnaBase[j][0]==true){
+                    i++;
+                    }
+                   } else {
+                   if (Columna[j]== "X"){
+                    if (columnaBase[j][1]==true){
+                    i++;
+                    }                   
+                   }else{
+                        if (columnaBase[j][2]==true){
+                    i++;
+                    }                       
+                       
+                   }
+                   }
+            }
+        return i >= aciertomin && i <= aciertomax;
+    
+     
+    }
 }

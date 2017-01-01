@@ -5,6 +5,7 @@
  */
 package bnqui;
 
+import java.awt.Color;
 import javax.swing.BorderFactory;
 import javax.swing.JTextField;
 
@@ -20,6 +21,8 @@ public class PorPartidos extends javax.swing.JPanel {
     public PorPartidos() {
         initComponents();
         setpartidos();
+        Color color = new Color(160,198,255);
+        this.setBackground(color)   ; 
     }
 
         public final void setpartidos(){

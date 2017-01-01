@@ -5,6 +5,7 @@
  */
 package bnqui;
 
+import java.awt.Color;
 import javax.swing.JTextField;
 
 /**
@@ -19,6 +20,8 @@ public class LabPartidos2 extends javax.swing.JPanel {
     public LabPartidos2() {
         initComponents();
         setpartidos();
+         Color color = new Color(160,198,255);
+        this.setBackground(color)   ; 
     }
 
         public final void setpartidos(){
